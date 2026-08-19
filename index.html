@@ -269,8 +269,37 @@
 
     <footer>
       <a href="#" onclick="toggleManage();return false">Manage schedule</a>
-      <p>Tip: use your browser's <b>Add to Home Screen</b> to save this page like an app.</p>
+      <p><a href="#" onclick="openA2hs();return false">📲 How to save this app to your home screen</a></p>
     </footer>
+  </div>
+</div>
+
+<div class="overlay" id="a2hs" onclick="if(event.target===this)closeA2hs()">
+  <div class="modal" style="max-width:480px;border-radius:18px;margin-bottom:auto;margin-top:auto;padding-bottom:18px">
+    <div style="text-align:center;padding:4px 6px 0">
+      <img src="logo.png" alt="" style="width:64px;height:64px">
+      <h3 style="font-size:1.1rem;margin:8px 0 4px">Save this app to your phone!</h3>
+      <p style="font-size:.85rem;color:var(--gray)">One tap from your home screen — no app store needed.</p>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px">
+      <div style="font-weight:800;font-size:.85rem;margin-bottom:6px">📱 iPhone / iPad (Safari)</div>
+      <ol style="font-size:.85rem;line-height:1.6;padding-left:20px">
+        <li>Tap the <b>Share</b> button <span style="border:1px solid var(--line);border-radius:4px;padding:0 5px">⬆︎</span> at the bottom of the screen</li>
+        <li>Scroll down and tap <b>Add to Home Screen</b></li>
+        <li>Tap <b>Add</b> — done!</li>
+      </ol>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:10px">
+      <div style="font-weight:800;font-size:.85rem;margin-bottom:6px">🤖 Android (Chrome)</div>
+      <ol style="font-size:.85rem;line-height:1.6;padding-left:20px">
+        <li>Tap the <b>⋮ menu</b> in the top-right corner</li>
+        <li>Tap <b>Add to Home screen</b> (or <b>Install app</b>)</li>
+        <li>Tap <b>Add</b> — done!</li>
+      </ol>
+    </div>
+    <div style="text-align:center;margin-top:14px">
+      <button class="btn" onclick="closeA2hs()">Got it 👍</button>
+    </div>
   </div>
 </div>
 
@@ -554,6 +583,16 @@ async function delEvent(id, title) {
   if (editId === id) cancelEdit();
   load();
 }
+
+/* ---------- add-to-home-screen popup ---------- */
+function openA2hs() { document.getElementById("a2hs").classList.add("open"); }
+function closeA2hs() {
+  document.getElementById("a2hs").classList.remove("open");
+  localStorage.setItem("a2hsSeen", "1");
+}
+// show once on first visit, unless already installed to the home screen
+const isInstalled = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+if (!localStorage.getItem("a2hsSeen") && !isInstalled) setTimeout(openA2hs, 800);
 
 setView(viewMode);
 load();
