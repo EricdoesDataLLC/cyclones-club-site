@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#a6192e">
-<meta name="description" content="Tri-County Cyclones Youth Hockey — newsletter, schedule, and volunteer signups">
-<title>Tri-County Cyclones</title>
-<link rel="icon" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+<meta name="description" content="Tri-County Cyclones 10U-3 — newsletter, schedule, and volunteer signups">
+<title>Tri-County Cyclones 10U-3</title>
+<link rel="icon" type="image/png" sizes="500x500" href="logo.png">
+<link rel="apple-touch-icon" sizes="500x500" href="logo.png">
 <link rel="manifest" href="manifest.json">
 <style>
   :root {
@@ -18,7 +18,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--ice); color: var(--ink); }
 
-  /* header */
   header { background: var(--black); color: #fff; padding: 18px 16px 0; text-align: center; }
   .brand { display: flex; align-items: center; justify-content: center; gap: 14px; padding-bottom: 14px; }
   .brand img { width: 64px; height: 64px; }
@@ -28,9 +27,8 @@
   .brand-text p { font-size: .78rem; color: #b9bec4; margin-top: 2px; }
   .redbar { height: 6px; background: var(--red); }
 
-  /* tabs */
   nav { position: sticky; top: 0; z-index: 10; display: flex; background: var(--red); box-shadow: 0 2px 6px rgba(0,0,0,.18); }
-  nav button { flex: 1; background: none; border: none; color: #f3cdd3; font-size: .9rem; font-weight: 700; padding: 13px 4px; cursor: pointer; text-transform: uppercase; letter-spacing: .8px; border-bottom: 3px solid transparent; }
+  nav button { flex: 1; background: none; border: none; color: #f3cdd3; font-size: .95rem; font-weight: 700; padding: 13px 4px; cursor: pointer; text-transform: uppercase; letter-spacing: .8px; border-bottom: 3px solid transparent; }
   nav button.active { color: #fff; border-bottom-color: #fff; background: rgba(0,0,0,.12); }
 
   .wrap { max-width: 640px; margin: 0 auto; padding: 14px 12px 70px; }
@@ -48,13 +46,20 @@
   section.nl li { font-size: .92rem; line-height: 1.5; padding: 7px 0 7px 22px; position: relative; }
   section.nl li::before { content: "▸"; color: var(--red); position: absolute; left: 4px; font-weight: 700; }
   section.nl li b { color: var(--black); }
+  section.nl p { font-size: .92rem; line-height: 1.5; }
   .callout { background: #faf1f2; border-left: 4px solid var(--red); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: .9rem; line-height: 1.5; margin-top: 12px; }
   .jumpbtn { display: inline-block; background: var(--red); color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-size: .9rem; font-weight: 700; cursor: pointer; margin-top: 10px; }
 
-  /* schedule / signups */
-  .namebar { display: flex; gap: 8px; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 12px; }
-  .namebar label { font-size: .8rem; color: var(--gray); white-space: nowrap; font-weight: 600; }
-  .namebar input { flex: 1; border: none; outline: none; font-size: 1rem; min-width: 0; background: transparent; }
+  /* schedule */
+  .disclaimer { background: #fff8e6; border: 1px solid #eadfb8; border-radius: 10px; padding: 10px 14px; font-size: .83rem; line-height: 1.45; color: #6a5b1e; margin-bottom: 12px; }
+  .toolrow { display: flex; gap: 8px; margin-bottom: 12px; }
+  .viewtoggle { display: flex; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .viewtoggle button { background: none; border: none; padding: 9px 16px; font-size: .85rem; font-weight: 700; color: var(--gray); cursor: pointer; }
+  .viewtoggle button.active { background: var(--black); color: #fff; }
+  .namebar { flex: 1; display: flex; gap: 8px; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; min-width: 0; }
+  .namebar label { font-size: .75rem; color: var(--gray); white-space: nowrap; font-weight: 600; }
+  .namebar input { flex: 1; border: none; outline: none; font-size: .95rem; min-width: 0; background: transparent; }
+
   .month { font-size: .78rem; font-weight: 800; color: var(--gray); text-transform: uppercase; letter-spacing: 1.2px; margin: 18px 4px 8px; }
   .card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
   .card-top { display: flex; gap: 12px; align-items: flex-start; }
@@ -68,6 +73,8 @@
   .chip.home { background: #e3f0e6; color: var(--green); }
   .chip.away { background: #fdeaea; color: var(--red); }
   .chip.event { background: #ececec; color: var(--black); }
+  .chip.info { background: #e2ecf3; color: #1a5276; }
+  .chip.fundraiser { background: #f7efd8; color: #8a6d1a; }
   .notes { font-size: .8rem; color: var(--gray); font-style: italic; margin-top: 6px; }
   .slots { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
   .slot { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--ice); border-radius: 10px; padding: 8px 10px; }
@@ -76,11 +83,39 @@
   .slot .who button { background: none; border: none; color: var(--gray); font-size: 1rem; cursor: pointer; padding: 0 4px; }
   .btn { background: var(--red); color: #fff; border: none; border-radius: 8px; padding: 7px 15px; font-size: .85rem; font-weight: 700; cursor: pointer; }
   .btn:active { background: var(--red-dark); }
+  .btn.secondary { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
   .empty { text-align: center; color: var(--gray); padding: 40px 20px; font-size: .95rem; }
+
+  /* calendar view */
+  #calView { display: none; }
+  .calhead { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 10px; }
+  .calhead h3 { font-size: 1.05rem; }
+  .calhead button { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; width: 36px; height: 36px; font-size: 1.1rem; cursor: pointer; color: var(--ink); }
+  .calgrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .caldow { text-align: center; font-size: .65rem; font-weight: 800; color: var(--gray); text-transform: uppercase; padding: 4px 0; }
+  .calcell { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; min-height: 62px; padding: 3px; font-size: .7rem; overflow: hidden; }
+  .calcell.out { background: transparent; border-color: transparent; }
+  .calcell .dn { font-size: .68rem; font-weight: 700; color: var(--gray); padding: 1px 3px; }
+  .calcell.today { border-color: var(--red); border-width: 2px; }
+  .calcell.today .dn { color: var(--red); }
+  .pill { display: block; width: 100%; text-align: left; border: none; border-radius: 5px; padding: 2px 4px; margin-top: 2px; font-size: .62rem; font-weight: 600; line-height: 1.25; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pill.home { background: #e3f0e6; color: var(--green); }
+  .pill.away { background: #fdeaea; color: var(--red); }
+  .pill.event { background: #ececec; color: var(--black); }
+  .pill.info { background: #e2ecf3; color: #1a5276; }
+  .pill.fundraiser { background: #f7efd8; color: #8a6d1a; }
+  .pill .need { color: var(--red); font-weight: 800; }
+
+  /* modal */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 40; display: none; align-items: flex-end; justify-content: center; }
+  .overlay.open { display: flex; }
+  .modal { background: var(--ice); width: 100%; max-width: 640px; max-height: 82vh; overflow-y: auto; border-radius: 18px 18px 0 0; padding: 14px 12px 30px; }
+  .modal .closebar { display: flex; justify-content: flex-end; margin-bottom: 6px; }
+  .modal .closebar button { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 5px 14px; font-size: .85rem; cursor: pointer; }
 
   footer { text-align: center; margin-top: 26px; font-size: .75rem; color: var(--gray); line-height: 1.7; }
   footer a { color: var(--red); }
-  .toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--black); color: #fff; padding: 10px 18px; border-radius: 10px; font-size: .85rem; opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 90%; text-align: center; z-index: 50; }
+  .toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--black); color: #fff; padding: 10px 18px; border-radius: 10px; font-size: .85rem; opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 90%; text-align: center; z-index: 60; }
   .toast.show { opacity: 1; }
 
   /* manage */
@@ -90,8 +125,10 @@
   .mcard h3 { font-size: .95rem; margin-bottom: 10px; color: var(--red); }
   .mcard label { display: block; font-size: .75rem; color: var(--gray); margin: 8px 0 3px; }
   .mcard input, .mcard select, .mcard textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: .95rem; font-family: inherit; }
-  .mrow { display: flex; align-items: center; justify-content: space-between; padding: 8px 4px; border-bottom: 1px solid var(--line); font-size: .88rem; gap: 8px; }
-  .mrow button { background: none; border: 1px solid var(--red); color: var(--red); border-radius: 6px; padding: 3px 10px; font-size: .78rem; cursor: pointer; white-space: nowrap; }
+  .mrow { display: flex; align-items: center; justify-content: space-between; padding: 8px 4px; border-bottom: 1px solid var(--line); font-size: .85rem; gap: 8px; }
+  .mrow .mbtns { display: flex; gap: 6px; }
+  .mrow button { background: none; border: 1px solid var(--gray); color: var(--gray); border-radius: 6px; padding: 3px 10px; font-size: .76rem; cursor: pointer; white-space: nowrap; }
+  .mrow button.del { border-color: var(--red); color: var(--red); }
 </style>
 </head>
 <body>
@@ -100,15 +137,14 @@
     <img src="logo.png" alt="Tri-County Cyclones logo">
     <div class="brand-text">
       <h1>Tri-County <span>Cyclones</span></h1>
-      <p>Youth Hockey · 2026–27 Season</p>
+      <p>10U-3 · Youth Hockey · 2026–27 Season</p>
     </div>
   </div>
 </header>
 <div class="redbar"></div>
 <nav>
   <button id="tabbtn-news" class="active" onclick="showTab('news')">📰 News</button>
-  <button id="tabbtn-schedule" onclick="showTab('schedule')">📅 Schedule</button>
-  <button id="tabbtn-volunteer" onclick="showTab('volunteer')">🙋 Volunteer</button>
+  <button id="tabbtn-schedule" onclick="showTab('schedule')">📅 Schedule &amp; Signups</button>
 </nav>
 
 <div class="wrap">
@@ -116,96 +152,117 @@
   <!-- ============ NEWS TAB ============ -->
   <div class="tab active" id="tab-news">
     <div class="nl-hero">
-      <div class="season">Parent Newsletter — 2026–27 Season</div>
+      <div class="season">10U-3 Parent Newsletter — 2026–27 Season</div>
       <h2>Welcome to the Season!</h2>
-      <p style="margin-top:8px">We're excited to kick things off with some big news: the club is at its <b>largest enrollment since 2013</b>, with a record 8 Mite teams and 3 Squirt teams. Thank you for being part of it!</p>
+      <p style="margin-top:8px">Welcome to the 2026–27 season! We're excited to kick things off. Thank you for being part of it!</p>
     </div>
 
     <section class="nl">
       <h3>Club News</h3>
       <ul>
-        <li><b>New video system:</b> We've upgraded to Hudl at KSU, replacing LiveBarn. Home games will be recorded and live streamed, and away games can be streamed too.</li>
-        <li><b>House hockey is growing:</b> Sessions now run both Saturdays and Sundays, starting August 16. Goalie training will run on the other half of the ice.</li>
-        <li><b>New sound system at KSU</b> — the speaker issues are fixed.</li>
-        <li><b>Golf outing success:</b> Our first-year golf outing raised $7,000, with about $5,000 going toward Night at the Races.</li>
-      </ul>
-    </section>
-
-    <section class="nl">
-      <h3>Mark Your Calendars</h3>
-      <p style="font-size:.92rem;line-height:1.5">All club events — and every game once schedules are released — live on the Schedule tab, where you can also grab a volunteer spot.</p>
-      <button class="jumpbtn" onclick="showTab('schedule')">See the schedule →</button>
-      <div class="callout"><b>Night at the Races (Nov 6):</b> Each team will assemble a themed basket. Interested in sponsoring? A new <b>Diamond Sponsor tier ($2,500)</b> includes a table of eight, race tickets, ads, and four golf outing spots.</div>
-    </section>
-
-    <section class="nl">
-      <h3>Gear &amp; Equipment</h3>
-      <ul>
-        <li><b>Neck guards</b> are required for 12U, 14U, and high school, and recommended for 8U and 10U.</li>
-        <li><b>Mouth guards</b> are required for 12U and up — attached to the helmet or worn in the mouth.</li>
-        <li><b>Practice jerseys:</b> Please return last year's jerseys, clean, during the first week of practice.</li>
-        <li><b>Borrowing gear?</b> Use the new online checkout form — QR codes are posted at gear locations.</li>
-        <li><b>Parking passes</b> are available for pickup at the rink now.</li>
-        <li>A small charge (~$20–30) for summer ice and July 4th parade costs will appear on season bills.</li>
-      </ul>
-    </section>
-
-    <section class="nl">
-      <h3>Conduct &amp; Policies</h3>
-      <ul>
-        <li><b>Parent Code of Conduct:</b> Every family will review and sign the code of conduct at their team's parent meeting early in the season. One parent per family must attend.</li>
-        <li><b>The 24-Hour Rule:</b> Please wait at least 24 hours after a game before contacting a coach with any concerns.</li>
-        <li><b>In the stands:</b> No negative comments toward referees, opposing teams, or players, and no entering the player bench. Violations can result in suspensions of 14–30 days from Mid-Am. An ejection from a game results in a home game suspension.</li>
-        <li><b>Cell phones in locker rooms:</b> Strict zero cell phone policy. Phones seen out will be held and returned to parents.</li>
-        <li><b>Online behavior:</b> Cyberbullying via social media is a CSHL and USA Hockey Safe Sport violation. Please talk with your player about this.</li>
-        <li><b>Reporting:</b> For injuries, conduct concerns, or other issues, use the incident form on the club website under Team Resources.</li>
+        <li><b>New video &amp; speaker systems:</b> The Cyclones upgraded to using Hudl at KSU. Home games will be recorded and live streamed, and away games can be streamed too. For those in attendance, the speakers in the rink have been upgraded as well. <i>Want your voice to be heard? An announcer would be wonderful.</i></li>
+        <li><b>Parent Code of Conduct / Player Code of Conduct</b> — This information is available online and was distributed during our parents' meeting. If you want a paper copy, please contact me. I will have a form for everyone to sign acknowledging that you've read it, per club policy.</li>
       </ul>
     </section>
 
     <section class="nl">
       <h3>We Need Volunteers!</h3>
+      <p style="font-style:italic;margin-bottom:8px">Never tried it before? Don't worry — it's straightforward once you do it.</p>
       <ul>
-        <li><b>Game-day helpers:</b> penalty box for every game; scoreboard and music for home games. Sign up right on the Schedule tab!</li>
-        <li><b>Locker room monitors</b> — especially for 12U and 14U. Parents must complete free Safe Sport training first.</li>
         <li><b>50/50 raffle sellers</b> for Monsters opening night in October (~3,000 tickets to sell!).</li>
-        <li><b>Night at the Races coordinator</b> — Carol is stepping down after years of service, and we're looking for someone to take over this rewarding role.</li>
+        <li><b>Music &amp; Sound</b> (home games)</li>
+        <li><b>Scoreboard &amp; Clock</b> (home games)</li>
+        <li><b>Penalty Box</b> (all games)</li>
       </ul>
-      <button class="jumpbtn" onclick="showTab('volunteer')">Sign up to help →</button>
+      <button class="jumpbtn" onclick="showTab('schedule')">Sign up to help →</button>
+    </section>
+
+    <section class="nl">
+      <h3>Mark Your Calendars</h3>
+      <p><b>This is the list of key events as of 8-5-26.</b> Updates/changes will be communicated. Every event is on the Schedule tab — including volunteer signups.</p>
+      <button class="jumpbtn" onclick="showTab('schedule')">See the schedule →</button>
+      <div class="callout"><b>Tournaments:</b> Common tournament weekends are on the schedule (MLK and President's Day weekends are <b>potential</b> tournament weekends), and there will be potential opportunities for other tournaments. Tournaments are one of the best parts of youth hockey!</div>
+      <div class="callout"><b>Night at the Races (Nov 6):</b> Each team will assemble a themed basket for the event. Interested in sponsoring? A new <b>Diamond Sponsor tier ($2,500)</b> includes a table of eight, race tickets, ads, and four golf outing spots.</div>
+    </section>
+
+    <section class="nl">
+      <h3>Gear &amp; Equipment Reminders</h3>
+      <ul>
+        <li><b>Neck guards</b> are required for 12U, 14U, and high school, and recommended for 8U and 10U.</li>
+        <li><b>Mouth guards</b> are required for 12U and up.</li>
+        <li><b>Practice jerseys:</b> Please return last year's jerseys, clean, during the first week of practice.</li>
+        <li><b>Borrowing gear?</b> Use the new online checkout form — QR codes are posted at gear locations.</li>
+        <li><b>Parking passes</b> are available for pickup from Coach Matt if you didn't receive one.</li>
+      </ul>
+    </section>
+
+    <section class="nl">
+      <h3>Conduct &amp; Policies</h3>
+      <p style="margin-bottom:8px">A few important reminders as we start the season:</p>
+      <ul>
+        <li><b>Parent Code of Conduct:</b> Every family will review and sign the code of conduct at their team's parent meeting early in the season. One parent per family must attend.</li>
+        <li><b>The 24-Hour Rule:</b> Please wait at least 24 hours after a game before contacting a coach with any concerns.</li>
+        <li><b>In the stands:</b> No negative comments toward referees, opposing teams, or players, and no entering the player bench. Violations can result in suspensions of 14–30 days from the Mid-Am governing body. An ejection from a game results in a home game suspension.</li>
+        <li><b>Cell phones in locker rooms:</b> The Cyclones have a strict zero cell phone policy in locker rooms. Phones seen out will be held and returned to parents.</li>
+        <li><b>Online behavior:</b> Cyberbullying via social media is a CSHL and USA Hockey Safe Sport violation. Please talk with your player about this.</li>
+        <li><b>Reporting:</b> For injuries, conduct concerns, or other issues, use the incident form on the club website under Team Resources — and also speak with a coach or the team manager.</li>
+      </ul>
     </section>
 
     <div style="text-align:center;font-size:.88rem;color:var(--gray);margin:18px 0">Questions? Reach out to your team manager. See you at the rink! 🏒</div>
   </div>
 
-  <!-- ============ SCHEDULE / VOLUNTEER TAB ============ -->
+  <!-- ============ SCHEDULE TAB ============ -->
   <div class="tab" id="tab-schedule">
-    <div class="namebar">
-      <label for="myname">Your name:</label>
-      <input id="myname" type="text" placeholder="e.g. Eric N." autocomplete="name">
+    <div class="disclaimer">⚠️ <b>Games and practices are managed in CrossBar.</b> This page covers club events, key season dates, and volunteer signups for the games we post here.</div>
+    <div class="toolrow">
+      <div class="viewtoggle">
+        <button id="vbtn-list" class="active" onclick="setView('list')">☰ List</button>
+        <button id="vbtn-cal" onclick="setView('cal')">▦ Calendar</button>
+      </div>
+      <div class="namebar">
+        <label for="myname">Your name:</label>
+        <input id="myname" type="text" placeholder="e.g. Eric N." autocomplete="name">
+      </div>
     </div>
-    <div id="list"><div class="empty">Loading schedule…</div></div>
+
+    <div id="listView"><div class="empty">Loading schedule…</div></div>
+
+    <div id="calView">
+      <div class="calhead">
+        <button onclick="calNav(-1)">‹</button>
+        <h3 id="calTitle"></h3>
+        <button onclick="calNav(1)">›</button>
+      </div>
+      <div class="calgrid" id="calGrid"></div>
+      <p style="font-size:.75rem;color:var(--gray);margin-top:8px;text-align:center">Tap an event to see details and sign up. <span class="need" style="color:var(--red);font-weight:800">•</span> = volunteers needed</p>
+    </div>
 
     <div id="managePanel">
       <div class="mcard">
-        <h3>Add game / event</h3>
+        <h3 id="formTitle">Add game / event</h3>
         <label>Title</label><input id="f_title" placeholder="vs Wildcats">
         <label>Date</label><input id="f_date" type="date">
         <label>Time (optional)</label><input id="f_time" placeholder="6:00 PM">
         <label>Location (optional)</label><input id="f_loc" placeholder="KSU">
         <label>Type</label>
         <select id="f_type">
-          <option value="home_game">Home game (Penalty Box, Scoreboard, Music)</option>
-          <option value="away_game">Away game (Penalty Box only)</option>
-          <option value="event">Other event (custom roles)</option>
+          <option value="home_game">Home game</option>
+          <option value="away_game">Away game</option>
+          <option value="event">Event</option>
+          <option value="info">Info</option>
+          <option value="fundraiser">Fundraiser</option>
         </select>
-        <div id="f_rolesWrap" style="display:none">
-          <label>Roles — one per line, "Role x count"</label>
-          <textarea id="f_roles" rows="3" placeholder="50/50 Seller x 6&#10;Setup Helper x 2"></textarea>
-        </div>
+        <label>Volunteer roles — one per line, "Role x count" (edit freely; leave empty for none)</label>
+        <textarea id="f_roles" rows="4" placeholder="Penalty Box x 1&#10;Scoreboard x 1&#10;Music x 1"></textarea>
         <label>Notes (optional)</label><input id="f_notes">
-        <div style="margin-top:12px"><button class="btn" onclick="addEvent()">Add to schedule</button></div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn" id="saveBtn" onclick="saveEvent()">Add to schedule</button>
+          <button class="btn secondary" id="cancelEditBtn" style="display:none" onclick="cancelEdit()">Cancel edit</button>
+        </div>
       </div>
       <div class="mcard">
-        <h3>Delete events</h3>
+        <h3>Existing events — edit or delete</h3>
         <div id="mlist"></div>
       </div>
     </div>
@@ -214,6 +271,13 @@
       <a href="#" onclick="toggleManage();return false">Manage schedule</a>
       <p>Tip: use your browser's <b>Add to Home Screen</b> to save this page like an app.</p>
     </footer>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="closebar"><button onclick="closeModal()">Close ✕</button></div>
+    <div id="modalBody"></div>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -225,16 +289,35 @@ const ADMIN_PIN = "2627"; // change me
 const HEADERS = { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY, "Content-Type": "application/json" };
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTHS_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DOWS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const DEFAULT_ROLES = {
+  home_game: "Penalty Box x 1\nScoreboard x 1\nMusic x 1",
+  away_game: "Penalty Box x 1",
+  event: "", info: "", fundraiser: ""
+};
 let events = [], signups = [];
+let viewMode = localStorage.getItem("viewMode") || "list";
+let calMonth = (() => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), 1); })();
+let openEventId = null;
+let editId = null;
 
+/* ---------- tabs & views ---------- */
 function showTab(name) {
-  const target = name === "volunteer" ? "schedule" : name;
-  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.id === "tab-" + target));
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.id === "tab-" + name));
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("active", b.id === "tabbtn-" + name));
   window.scrollTo({ top: 0 });
-  if (name === "volunteer") setTimeout(() => document.getElementById("myname").focus(), 100);
+}
+function setView(mode) {
+  viewMode = mode;
+  localStorage.setItem("viewMode", mode);
+  document.getElementById("vbtn-list").classList.toggle("active", mode === "list");
+  document.getElementById("vbtn-cal").classList.toggle("active", mode === "cal");
+  document.getElementById("listView").style.display = mode === "list" ? "block" : "none";
+  document.getElementById("calView").style.display = mode === "cal" ? "block" : "none";
+  if (mode === "cal") renderCalendar();
 }
 
+/* ---------- shared ---------- */
 const nameInput = document.getElementById("myname");
 nameInput.value = localStorage.getItem("volName") || "";
 nameInput.addEventListener("change", () => localStorage.setItem("volName", nameInput.value.trim()));
@@ -244,13 +327,15 @@ function toast(msg) {
   t.textContent = msg; t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), 2600);
 }
-
 async function api(path, opts = {}) {
   const res = await fetch(SUPABASE_URL + "/rest/v1/" + path, { ...opts, headers: { ...HEADERS, ...(opts.headers || {}) } });
   if (!res.ok) { const e = new Error("api"); e.status = res.status; throw e; }
   const txt = await res.text();
   return txt ? JSON.parse(txt) : null;
 }
+function localDate(iso) { const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d); }
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function isoOf(y, m, d) { return `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`; }
 
 async function load() {
   try {
@@ -260,49 +345,115 @@ async function load() {
       api(`events?select=*&event_date=gte.${cutoff}&order=event_date.asc`),
       api("signups?select=*")
     ]);
-    render();
+    renderList();
+    if (viewMode === "cal") renderCalendar();
     renderManage();
+    if (openEventId) {
+      const ev = events.find(e => e.id === openEventId);
+      if (ev) document.getElementById("modalBody").innerHTML = cardHtml(ev, true); else closeModal();
+    }
   } catch {
-    document.getElementById("list").innerHTML = '<div class="empty">Couldn\'t load the schedule — check your connection and pull to refresh.</div>';
+    document.getElementById("listView").innerHTML = '<div class="empty">Couldn\'t load the schedule — check your connection and refresh.</div>';
   }
 }
 
-function localDate(iso) { const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d); }
-function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function chipHtml(t) {
+  return t === "home_game" ? '<span class="chip home">Home game</span>'
+    : t === "away_game" ? '<span class="chip away">Away game</span>'
+    : t === "info" ? '<span class="chip info">Info</span>'
+    : t === "fundraiser" ? '<span class="chip fundraiser">Fundraiser</span>'
+    : '<span class="chip event">Event</span>';
+}
+function pillClass(t) {
+  return t === "home_game" ? "home" : t === "away_game" ? "away"
+    : t === "info" ? "info" : t === "fundraiser" ? "fundraiser" : "event";
+}
+function slotsHtml(ev) {
+  let html = "";
+  for (const role of (ev.roles || [])) {
+    for (let s = 1; s <= (role.count || 1); s++) {
+      const taken = signups.find(x => x.event_id === ev.id && x.role === role.name && x.slot === s);
+      const label = (role.count || 1) > 1 ? `${esc(role.name)} #${s}` : esc(role.name);
+      html += taken
+        ? `<div class="slot"><span class="r">${label}</span><span class="who">✓ ${esc(taken.volunteer_name)}<button title="Cancel this signup" onclick="cancelSignup('${taken.id}','${esc(taken.volunteer_name)}')">✕</button></span></div>`
+        : `<div class="slot"><span class="r">${label}</span><button class="btn" onclick="claim('${ev.id}','${esc(role.name).replace(/'/g, "\\'")}',${s})">Sign up</button></div>`;
+    }
+  }
+  return html;
+}
+function cardHtml(ev, big = false) {
+  const d = localDate(ev.event_date);
+  const meta = [ev.event_time, ev.location].filter(Boolean).join(" · ");
+  const sh = slotsHtml(ev);
+  return `<div class="card"><div class="card-top">
+    <div class="datebox"><div class="m">${MONTHS[d.getMonth()]}</div><div class="d">${d.getDate()}</div></div>
+    <div class="info"><h3>${esc(ev.title)}</h3>${meta ? `<div class="meta">${esc(meta)}</div>` : ""}${chipHtml(ev.event_type)}</div>
+  </div>${ev.notes ? `<div class="notes">${esc(ev.notes)}</div>` : ""}${sh ? `<div class="slots">${sh}</div>` : (big ? '<div class="notes" style="margin-top:10px">No volunteer slots for this one.</div>' : "")}</div>`;
+}
 
-function render() {
-  const list = document.getElementById("list");
+/* ---------- list view ---------- */
+function renderList() {
+  const list = document.getElementById("listView");
   if (!events.length) { list.innerHTML = '<div class="empty">No upcoming events yet. Check back soon!</div>'; return; }
   let html = "", lastMonth = "";
   for (const ev of events) {
     const d = localDate(ev.event_date);
     const mk = MONTHS_FULL[d.getMonth()] + " " + d.getFullYear();
     if (mk !== lastMonth) { html += `<div class="month">${mk}</div>`; lastMonth = mk; }
-    const chip = ev.event_type === "home_game" ? '<span class="chip home">Home game</span>'
-      : ev.event_type === "away_game" ? '<span class="chip away">Away game</span>'
-      : '<span class="chip event">Event</span>';
-    const meta = [ev.event_time, ev.location].filter(Boolean).join(" · ");
-    let slotsHtml = "";
-    for (const role of (ev.roles || [])) {
-      for (let s = 1; s <= (role.count || 1); s++) {
-        const taken = signups.find(x => x.event_id === ev.id && x.role === role.name && x.slot === s);
-        const label = (role.count || 1) > 1 ? `${esc(role.name)} #${s}` : esc(role.name);
-        slotsHtml += taken
-          ? `<div class="slot"><span class="r">${label}</span><span class="who">✓ ${esc(taken.volunteer_name)}<button title="Cancel this signup" onclick="cancelSignup('${taken.id}','${esc(taken.volunteer_name)}')">✕</button></span></div>`
-          : `<div class="slot"><span class="r">${label}</span><button class="btn" onclick="claim('${ev.id}','${esc(role.name).replace(/'/g, "\\'")}',${s})">Sign up</button></div>`;
-      }
-    }
-    html += `<div class="card"><div class="card-top">
-      <div class="datebox"><div class="m">${MONTHS[d.getMonth()]}</div><div class="d">${d.getDate()}</div></div>
-      <div class="info"><h3>${esc(ev.title)}</h3>${meta ? `<div class="meta">${esc(meta)}</div>` : ""}${chip}</div>
-    </div>${ev.notes ? `<div class="notes">${esc(ev.notes)}</div>` : ""}${slotsHtml ? `<div class="slots">${slotsHtml}</div>` : ""}</div>`;
+    html += cardHtml(ev);
   }
   list.innerHTML = html;
 }
 
+/* ---------- calendar view ---------- */
+function calNav(dir) { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + dir, 1); renderCalendar(); }
+function openSlotsCount(ev) {
+  let open = 0;
+  for (const role of (ev.roles || []))
+    for (let s = 1; s <= (role.count || 1); s++)
+      if (!signups.find(x => x.event_id === ev.id && x.role === role.name && x.slot === s)) open++;
+  return open;
+}
+function renderCalendar() {
+  const y = calMonth.getFullYear(), m = calMonth.getMonth();
+  document.getElementById("calTitle").textContent = MONTHS_FULL[m] + " " + y;
+  const byDate = {};
+  for (const ev of events) (byDate[ev.event_date] = byDate[ev.event_date] || []).push(ev);
+  const first = new Date(y, m, 1).getDay();
+  const days = new Date(y, m + 1, 0).getDate();
+  const now = new Date();
+  const todayIso = isoOf(now.getFullYear(), now.getMonth(), now.getDate());
+  let html = DOWS.map(d => `<div class="caldow">${d}</div>`).join("");
+  for (let i = 0; i < first; i++) html += '<div class="calcell out"></div>';
+  for (let d = 1; d <= days; d++) {
+    const iso = isoOf(y, m, d);
+    const evs = byDate[iso] || [];
+    const cls = "calcell" + (iso === todayIso ? " today" : "");
+    let pills = "";
+    for (const ev of evs) {
+      const need = openSlotsCount(ev) > 0 ? '<span class="need">•</span> ' : "";
+      pills += `<button class="pill ${pillClass(ev.event_type)}" onclick="openModal('${ev.id}')">${need}${esc(ev.title)}</button>`;
+    }
+    html += `<div class="${cls}"><div class="dn">${d}</div>${pills}</div>`;
+  }
+  document.getElementById("calGrid").innerHTML = html;
+}
+function openModal(id) {
+  const ev = events.find(e => e.id === id);
+  if (!ev) return;
+  openEventId = id;
+  document.getElementById("modalBody").innerHTML = cardHtml(ev, true);
+  document.getElementById("overlay").classList.add("open");
+}
+function closeModal() {
+  openEventId = null;
+  document.getElementById("overlay").classList.remove("open");
+}
+
+/* ---------- signups ---------- */
 async function claim(eventId, role, slot) {
   const name = nameInput.value.trim();
-  if (!name) { toast("Type your name at the top first 👆"); nameInput.focus(); return; }
+  if (!name) { toast("Type your name in the box at the top first 👆"); closeModal(); nameInput.focus(); return; }
   try {
     await api("signups", { method: "POST", body: JSON.stringify({ event_id: eventId, role, slot, volunteer_name: name }) });
     toast("You're signed up — thank you! 🎉");
@@ -311,14 +462,13 @@ async function claim(eventId, role, slot) {
   }
   load();
 }
-
 async function cancelSignup(id, who) {
   if (!confirm(`Remove ${who} from this spot?`)) return;
   try { await api(`signups?id=eq.${id}`, { method: "DELETE" }); toast("Spot reopened."); } catch { toast("Couldn't cancel — try again."); }
   load();
 }
 
-/* ---- manage ---- */
+/* ---------- manage ---------- */
 let managed = false;
 function toggleManage() {
   if (!managed) {
@@ -329,8 +479,9 @@ function toggleManage() {
   document.getElementById("managePanel").classList.toggle("open");
 }
 document.getElementById("f_type").addEventListener("change", e => {
-  document.getElementById("f_rolesWrap").style.display = e.target.value === "event" ? "block" : "none";
+  document.getElementById("f_roles").value = DEFAULT_ROLES[e.target.value];
 });
+document.getElementById("f_roles").value = DEFAULT_ROLES.home_game;
 
 function parseRoles(text) {
   return text.split("\n").map(l => l.trim()).filter(Boolean).map(l => {
@@ -338,41 +489,73 @@ function parseRoles(text) {
     return { name: m[1].trim(), count: m[2] ? parseInt(m[2]) : 1 };
   });
 }
+function rolesToText(roles) { return (roles || []).map(r => `${r.name} x ${r.count || 1}`).join("\n"); }
 
-async function addEvent() {
+function startEdit(id) {
+  const ev = events.find(e => e.id === id);
+  if (!ev) return;
+  editId = id;
+  document.getElementById("formTitle").textContent = "Edit: " + ev.title;
+  document.getElementById("f_title").value = ev.title;
+  document.getElementById("f_date").value = ev.event_date;
+  document.getElementById("f_time").value = ev.event_time || "";
+  document.getElementById("f_loc").value = ev.location || "";
+  document.getElementById("f_type").value = ev.event_type;
+  document.getElementById("f_roles").value = rolesToText(ev.roles);
+  document.getElementById("f_notes").value = ev.notes || "";
+  document.getElementById("saveBtn").textContent = "Save changes";
+  document.getElementById("cancelEditBtn").style.display = "inline-block";
+  document.getElementById("formTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+function cancelEdit() {
+  editId = null;
+  document.getElementById("formTitle").textContent = "Add game / event";
+  ["f_title", "f_time", "f_loc", "f_notes"].forEach(id => document.getElementById(id).value = "");
+  document.getElementById("f_date").value = "";
+  document.getElementById("f_roles").value = DEFAULT_ROLES[document.getElementById("f_type").value];
+  document.getElementById("saveBtn").textContent = "Add to schedule";
+  document.getElementById("cancelEditBtn").style.display = "none";
+}
+async function saveEvent() {
   const title = document.getElementById("f_title").value.trim();
   const date = document.getElementById("f_date").value;
   if (!title || !date) { toast("Title and date are required."); return; }
-  const type = document.getElementById("f_type").value;
-  const roles = type === "home_game"
-    ? [{ name: "Penalty Box", count: 1 }, { name: "Scoreboard", count: 1 }, { name: "Music", count: 1 }]
-    : type === "away_game"
-      ? [{ name: "Penalty Box", count: 1 }]
-      : parseRoles(document.getElementById("f_roles").value);
+  const body = JSON.stringify({
+    title,
+    event_date: date,
+    event_time: document.getElementById("f_time").value.trim() || null,
+    location: document.getElementById("f_loc").value.trim() || null,
+    event_type: document.getElementById("f_type").value,
+    notes: document.getElementById("f_notes").value.trim() || null,
+    roles: parseRoles(document.getElementById("f_roles").value)
+  });
   try {
-    await api("events", { method: "POST", body: JSON.stringify({
-      title, event_date: date, event_time: document.getElementById("f_time").value.trim() || null,
-      location: document.getElementById("f_loc").value.trim() || null,
-      event_type: type, notes: document.getElementById("f_notes").value.trim() || null, roles
-    })});
-    toast("Added to schedule ✔");
-    ["f_title", "f_time", "f_loc", "f_notes", "f_roles"].forEach(id => document.getElementById(id).value = "");
-  } catch { toast("Couldn't add — try again."); }
+    if (editId) {
+      await api(`events?id=eq.${editId}`, { method: "PATCH", body });
+      toast("Event updated ✔");
+    } else {
+      await api("events", { method: "POST", body });
+      toast("Added to schedule ✔");
+    }
+    cancelEdit();
+  } catch { toast("Couldn't save — try again."); }
   load();
 }
-
 function renderManage() {
   document.getElementById("mlist").innerHTML = events.map(ev =>
-    `<div class="mrow"><span>${esc(ev.event_date)} — ${esc(ev.title)}</span><button onclick="delEvent('${ev.id}','${esc(ev.title).replace(/'/g, "\\'")}')">Delete</button></div>`
+    `<div class="mrow"><span>${esc(ev.event_date)} — ${esc(ev.title)}</span>
+     <span class="mbtns"><button onclick="startEdit('${ev.id}')">Edit</button>
+     <button class="del" onclick="delEvent('${ev.id}','${esc(ev.title).replace(/'/g, "\\'")}')">Delete</button></span></div>`
   ).join("") || '<div class="meta">No upcoming events.</div>';
 }
-
 async function delEvent(id, title) {
   if (!confirm(`Delete "${title}" and all its signups?`)) return;
   try { await api(`events?id=eq.${id}`, { method: "DELETE" }); toast("Deleted."); } catch { toast("Couldn't delete."); }
+  if (editId === id) cancelEdit();
   load();
 }
 
+setView(viewMode);
 load();
 </script>
 </body>
