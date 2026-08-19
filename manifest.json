@@ -1,0 +1,12 @@
+{
+  "name": "Tri-County Cyclones",
+  "short_name": "Cyclones",
+  "description": "Newsletter, schedule, and volunteer signups for Tri-County Cyclones youth hockey",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#141414",
+  "theme_color": "#a6192e",
+  "icons": [
+    { "src": "logo.png", "sizes": "500x500", "type": "image/png", "purpose": "any" }
+  ]
+}
